@@ -49,6 +49,10 @@ public class PlayerMovement : MonoBehaviour
         {
             CandyGenerator.instance.ManageCandy(other.gameObject.GetComponent<CandyController>(), this);
         }
+        if (other.tag == "Enemy")
+        {
+            EnemyGenerator.instance.ManageEnemy(other.gameObject.GetComponent<EnemyController>(), this);
+        }
     }
 
     public void Movement(InputAction.CallbackContext context)
