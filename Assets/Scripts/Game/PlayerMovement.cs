@@ -12,10 +12,12 @@ public class PlayerMovement : MonoBehaviour
     private float limitInferior;
     public int player_lives = 4;
     private Vector2 _movement;
+    [SerializeField] private Vector2 initialPosition;
     // Start is called before the first frame update
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
+        initialPosition = transform.position;
         SetMinMax();
     }
 
@@ -52,11 +54,23 @@ public class PlayerMovement : MonoBehaviour
         if (other.tag == "Enemy")
         {
             EnemyGenerator.instance.ManageEnemy(other.gameObject.GetComponent<EnemyController>(), this);
+            StartCoroutine(Invulnerability());
+            transform.position = initialPosition;
         }
     }
 
     public void Movement(InputAction.CallbackContext context)
     {
         _movement = context.ReadValue<Vector2>();
+    }
+
+    private IEnumerator Invulnerability()
+    {
+        Collider2D collider = GetComponent<Collider2D>();
+        collider.enabled = false;
+
+        yield return new WaitForSeconds(1f);
+
+        collider.enabled = true;
     }
 }
