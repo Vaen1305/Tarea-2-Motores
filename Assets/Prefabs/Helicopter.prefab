@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frame: 0
   lifeChanges: -1
+  _soundDor: {fileID: 11400000, guid: b39693d3e7f93b7409125ecff2849b3e, type: 2}
 --- !u!50 &976949091397323285
 Rigidbody2D:
   serializedVersion: 4

@@ -103,6 +103,8 @@ MonoBehaviour:
   frame: 0
   lifeChanges: 0
   points: 5
+  _soundDoor: {fileID: 11400000, guid: 1917121cab8906f4eb81c4ba7f75f9c2, type: 2}
+  _audioSource: {fileID: 0}
 --- !u!61 &8147590017139661117
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -103,6 +103,7 @@ MonoBehaviour:
   frame: 1
   lifeChanges: -3
   points: 3
+  _soundDoor: {fileID: 11400000, guid: 1917121cab8906f4eb81c4ba7f75f9c2, type: 2}
 --- !u!61 &2617190645289942568
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class CandyController : MonoBehaviour
@@ -7,6 +8,7 @@ public class CandyController : MonoBehaviour
     public int frame;
     public int lifeChanges;
     [SerializeField] int points = 1;
+    [SerializeField] private SoundDoor _soundDoor;
 
     void Update()
     {
@@ -21,6 +23,7 @@ public class CandyController : MonoBehaviour
         {
             ManagerController.instance.AddPoints(points);
             CandyGenerator.instance.ManageCandy(this);
+            SoundController.instance.RunSound(_soundDoor.SoundClip);
         }
     }
 }

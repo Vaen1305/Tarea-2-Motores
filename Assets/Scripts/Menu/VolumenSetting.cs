@@ -11,7 +11,9 @@ public class VolumenSetting : MonoBehaviour
     [SerializeField] private Slider MasterSlider;
     [SerializeField] private Slider MusicSlider;
     [SerializeField] private Slider SFXSlider;
-    
+    [SerializeField] private Button muteButton;
+    private bool isMuted = false;
+
     private void Start()
     {
         MasterSlider.value = PlayerPrefs.GetFloat("MasterVolume", 0.75f);
@@ -35,5 +37,18 @@ public class VolumenSetting : MonoBehaviour
         float volumen = SFXSlider.value;
         audioMixer.SetFloat("SFX", Mathf.Log10(volumen) * 20);
         PlayerPrefs.SetFloat("SFXVolume", volumen);
+    }
+    public void ToggleMute()
+    {
+        isMuted = !isMuted;
+        if (isMuted)
+        {
+            audioMixer.SetFloat("Master", -80);
+        }
+        else
+        {
+            float volume = PlayerPrefs.GetFloat("MasterVolume", 0.75f);
+            audioMixer.SetFloat("Master", Mathf.Log10(volume) * 20);
+        }
     }
 }

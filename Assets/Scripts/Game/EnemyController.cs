@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     public int frame;
     public int lifeChanges;
+    [SerializeField] private SoundDoor _soundDor;
 
     void Update()
     {
@@ -19,6 +20,7 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             EnemyGenerator.instance.ManageEnemy(this);
+            SoundController.instance.RunSound(_soundDor.SoundClip);
         }
     }
 }
